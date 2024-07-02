@@ -16,16 +16,10 @@ const Index = () => {
       toast(`選擇的方向: ${randomDirection}`);
     } else if (step === 1) {
       try {
-        const response = await fetch("https://api.coingecko.com/api/v3/coins/markets", {
+        const response = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1", {
           method: "GET",
           headers: {
             "Content-Type": "application/json"
-          },
-          params: {
-            vs_currency: "usd",
-            order: "market_cap_desc",
-            per_page: 100,
-            page: 1
           }
         });
         const data = await response.json();
